@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Create an Account</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>SECURE ACCOUNT REGISTRATION</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">Already registered?</span>
+        <a href="login.html" class="role-pill">Sign In</a>
+      </div>
+    </div>
+    <div class="main-nav">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-icon"></div>
+        <div class="brand-text-group">
+          <span class="brand-title">campusXchange</span>
+          <span class="brand-subtitle">Student Marketplace &amp; Campus Exchange</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="login.html" class="btn-primary">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container registration-page">
+    <section class="hero-showcase registration-hero">
+      <span class="hero-tag">One account, four portals</span>
+      <h1 class="hero-title">CREATE YOUR CAMPUSXCHANGE ACCOUNT</h1>
+      <p class="hero-desc">Choose a role below and complete the matching registration form. You can switch portals later from your account.</p>
+    </section>
+
+    <section class="registration-card" aria-labelledby="registrationTitle">
+      <div class="registration-heading">
+        <div>
+          <h2 id="registrationTitle">Create a buyer account</h2>
+          <p id="registrationDescription">Browse listings, message sellers, and track your campus purchases.</p>
+        </div>
+        <span id="registrationStep" class="registration-step">1 of 4 roles</span>
+      </div>
+
+      <nav class="registration-tabs" aria-label="Choose account role">
+        <button type="button" class="registration-tab active" data-role="buyer">Buyer</button>
+        <button type="button" class="registration-tab" data-role="seller">Seller</button>
+        <button type="button" class="registration-tab" data-role="moderator">Moderator</button>
+        <button type="button" class="registration-tab" data-role="admin">Admin</button>
+      </nav>
+
+      <form id="registrationForm" novalidate>
+        <input type="hidden" id="accountRole" name="role" value="buyer">
+        <div class="registration-grid">
+          <div class="filter-group">
+            <label for="fullName" class="filter-label">Full name</label>
+            <input id="fullName" name="fullName" class="input-control" type="text" placeholder="e.g. Emma Watson" autocomplete="name" required>
+          </div>
+          <div class="filter-group">
+            <label for="email" class="filter-label">Campus email address</label>
+            <input id="email" name="email" class="input-control" type="email" placeholder="e.g. emma.watson@campus.edu" autocomplete="email" required>
+          </div>
+          <div class="filter-group">
+            <label for="password" class="filter-label">Password</label>
+            <input id="password" name="password" class="input-control" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="new-password" required>
+          </div>
+          <div class="filter-group">
+            <label for="confirmPassword" class="filter-label">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" class="input-control" type="password" minlength="8" placeholder="Re-enter your password" autocomplete="new-password" required>
+          </div>
+        </div>
+
+        <fieldset class="role-fields">
+          <legend id="roleFieldsTitle">Buyer details</legend>
+          <div id="buyerFields" class="role-fields-content">
+            <div class="filter-group">
+              <label for="campusId" class="filter-label">Student ID number</label>
+              <input id="campusId" name="campusId" class="input-control" type="text" placeholder="e.g. STU-2026-441">
+            </div>
+            <div class="filter-group">
+              <label for="pickupLocation" class="filter-label">Campus dorm / pickup location</label>
+              <select id="pickupLocation" name="pickupLocation" class="select-control">
+                <option>Main Campus Center</option>
+                <option>North Residence Hall</option>
+                <option>Science &amp; Engineering Library</option>
+                <option>Off-Campus Student Housing</option>
+              </select>
+            </div>
+          </div>
+          <div id="sellerFields" class="role-fields-content" hidden>
+            <div class="filter-group">
+              <label for="sellerLocation" class="filter-label">Primary campus pickup location</label>
+              <input id="sellerLocation" name="sellerLocation" class="input-control" type="text" placeholder="e.g. North Quad Hall / Student Union">
+            </div>
+            <div class="filter-group">
+              <label for="sellerCategory" class="filter-label">Primary item category</label>
+              <select id="sellerCategory" name="sellerCategory" class="select-control">
+                <option>Electronics &amp; Laptops</option>
+                <option>Calculators &amp; Tech</option>
+                <option>Textbooks &amp; Course Packs</option>
+                <option>Audio &amp; Gaming</option>
+                <option>Campus Commuting</option>
+              </select>
+            </div>
+          </div>
+          <div id="moderatorFields" class="role-fields-content" hidden>
+            <div class="filter-group">
+              <label for="moderatorDivision" class="filter-label">Campus oversight division</label>
+              <select id="moderatorDivision" name="moderatorDivision" class="select-control">
+                <option>Electronics &amp; Tech Hardware</option>
+                <option>Textbooks &amp; Course Materials</option>
+                <option>Dorm Essentials &amp; Commuting</option>
+                <option>General Campus Marketplace</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="moderatorCode" class="filter-label">Moderator authorization passcode</label>
+              <input id="moderatorCode" name="moderatorCode" class="input-control" type="text" value="MOD-SAFETY-99" required>
+            </div>
+          </div>
+          <div id="adminFields" class="role-fields-content" hidden>
+            <div class="filter-group">
+              <label for="adminTitle" class="filter-label">Administrator name &amp; title</label>
+              <input id="adminTitle" name="adminTitle" class="input-control" type="text" placeholder="e.g. Sarah Jenkins, Director">
+            </div>
+            <div class="filter-group">
+              <label for="adminKey" class="filter-label">Administrative security key</label>
+              <input id="adminKey" name="adminKey" class="input-control" type="text" value="CAMPUS-ROOT-2026" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <label class="terms-check">
+          <input id="terms" name="terms" type="checkbox" required>
+          <span>I agree to the campus marketplace terms and confirm that my information is accurate.</span>
+        </label>
+        <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn-primary registration-submit">Create buyer account</button>
+      </form>
+    </section>
+  </main>
+  <script src="register.js"></script>
+</body>
+</html>

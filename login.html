@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>campusXchange | Sign In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="system-header">
+    <div class="role-bar">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>SECURE ACCOUNT ACCESS</span>
+      </div>
+      <div class="role-switcher">
+        <span class="role-label">New to campusXchange?</span>
+        <a href="register.html" class="role-pill">Create an account</a>
+      </div>
+    </div>
+    <div class="main-nav">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-icon"></div>
+        <div class="brand-text-group">
+          <span class="brand-title">campusXchange</span>
+          <span class="brand-subtitle">Student Marketplace &amp; Campus Exchange</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn-back-home">← Back to Marketplace Home</a>
+        <a href="register.html" class="btn-primary">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container login-page">
+    <section class="login-layout">
+      <div class="hero-showcase login-hero">
+        <span class="hero-tag">Welcome back</span>
+        <h1 class="hero-title">YOUR CAMPUS MARKETPLACE AWAITS</h1>
+        <p class="hero-desc">Sign in to browse verified listings, manage your inventory, or continue supporting a safe student exchange.</p>
+        <div class="login-benefits">
+          <span>✓ Verified student community</span>
+          <span>✓ Secure role-based access</span>
+          <span>✓ Simple campus pickup</span>
+        </div>
+      </div>
+
+      <section class="login-card" aria-labelledby="loginTitle">
+        <div class="login-card-heading">
+          <h2 id="loginTitle">Sign in to your account</h2>
+          <p>Use your campus email and password to continue.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="filter-group">
+            <label for="loginEmail" class="filter-label">Campus email address</label>
+            <input id="loginEmail" name="email" class="input-control" type="email" placeholder="e.g. emma.watson@campus.edu" autocomplete="email" required>
+          </div>
+          <div class="filter-group login-field">
+            <label for="loginPassword" class="filter-label">Password</label>
+            <div class="password-field">
+              <input id="loginPassword" name="password" class="input-control" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+              <button type="button" id="togglePassword" class="password-toggle" aria-label="Show password">Show</button>
+            </div>
+          </div>
+          <div class="login-options">
+            <label class="remember-check">
+              <input id="rememberMe" type="checkbox">
+              <span>Remember me on this device</span>
+            </label>
+            <button type="button" id="forgotPassword" class="text-button">Forgot password?</button>
+          </div>
+          <p id="loginMessage" class="form-message" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn-primary login-submit">Sign in</button>
+        </form>
+
+        <div class="demo-login">
+          <strong>Demo access</strong>
+          <p>Select a role to fill a ready-to-use demo account.</p>
+          <div class="demo-login-buttons">
+            <button type="button" data-demo-role="buyer">Buyer</button>
+            <button type="button" data-demo-role="seller">Seller</button>
+            <button type="button" data-demo-role="moderator">Moderator</button>
+            <button type="button" data-demo-role="admin">Admin</button>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>

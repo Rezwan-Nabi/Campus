@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>campusXchange | Student Tech &amp; Campus Marketplace</title>
+		<link rel="stylesheet" href="portal.css" />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<!-- System Global Header with Universal Auth & Session Switcher -->
+		<header class="system-header">
+			<div class="auth-top-bar">
+				<div class="auth-user-status">
+					<span class="status-dot"></span>
+					<span
+						>Signed in as:
+						<strong id="currentUserName">Emma Watson</strong></span
+					>
+					<span id="currentUserRole" class="role-badge role-buyer"
+						>BUYER</span
+					>
+				</div>
+
+				<div class="demo-account-switcher">
+					<span class="demo-label">1-Click Role Switcher:</span>
+					<button class="demo-btn" data-role="buyer">🛒 Buyer</button>
+					<button class="demo-btn" data-role="seller">
+						📦 Seller
+					</button>
+					<button class="demo-btn" data-role="moderator">
+						🛡️ Moderator
+					</button>
+					<button class="demo-btn" data-role="admin">⚡ Admin</button>
+				</div>
+			</div>
+
+			<div class="main-nav">
+				<a href="index.html" class="brand-wrapper">
+					<div class="brand-logo-icon">
+						<!-- <svg viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg> -->
+					</div>
+					<div>
+						<span class="brand-title">campusXchange</span>
+						<div class="brand-subtitle">
+							Student Marketplace &amp; Campus Exchange
+						</div>
+					</div>
+				</a>
+
+				<div class="nav-right-actions">
+					<a href="cart.html" class="nav-cart-btn" id="cartNavBtn"
+						>🛒 Cart (<span id="cartCountBadge" class="cart-badge"
+							>0</span
+						>)</a
+					>
+					<a
+						id="portalJumpBtn"
+						href="buyers/view/search.html"
+						class="btn-portal-jump">
+						Open Role Portal →
+					</a>
+					<a href="login.html" id="authActionBtn" class="btn-outline"
+						>Universal Login</a
+					>
+					<a href="register.html" class="btn-cyan">Register</a>
+				</div>
+			</div>
+		</header>
+
+		<main class="page-container">
+			<!-- Hero Showcase Section -->
+			<section class="hero-showcase">
+				<span class="hero-tag">Verified Student Exchange</span>
+				<h1 class="hero-title">
+					BUY &amp; SELL CAMPUS TECH, TEXTBOOKS &amp; GEAR
+				</h1>
+				<p class="hero-desc">
+					Browse peer-to-peer student listings for laptops, graphing
+					calculators, tablets, lab equipment, and campus transport
+					directly from verified classmates.
+				</p>
+
+				<div class="hero-stats-row">
+					<div class="hero-stat-item">
+						<span class="hero-stat-num">99.8%</span>
+						<span class="hero-stat-lbl">Student Trust Rating</span>
+					</div>
+					<div class="hero-stat-item">
+						<span class="hero-stat-num">$120K+</span>
+						<span class="hero-stat-lbl">Total Student Savings</span>
+					</div>
+					<div class="hero-stat-item">
+						<span class="hero-stat-num">On Campus</span>
+						<span class="hero-stat-lbl"
+							>Safe Union &amp; Library Pickup</span
+						>
+					</div>
+				</div>
+			</section>
+
+			<!-- Search & Multi-Filter Controls Bar -->
+			<section class="search-filter-panel">
+				<div class="filter-group">
+					<label for="homeSearchInput" class="filter-label"
+						>Search Listings</label
+					>
+					<input
+						type="text"
+						id="homeSearchInput"
+						class="input-control"
+						placeholder="Search MacBooks, calculators, iPads..." />
+				</div>
+
+				<div class="filter-group">
+					<label for="homeCategoryFilter" class="filter-label"
+						>Category</label
+					>
+					<select id="homeCategoryFilter" class="select-control">
+						<option value="all">All Categories</option>
+						<option value="Laptops & Computers">
+							Laptops &amp; Computers
+						</option>
+						<option value="Calculators & Math">
+							Calculators &amp; Math
+						</option>
+						<option value="Tablets & E-Readers">
+							Tablets &amp; E-Readers
+						</option>
+						<option value="Audio & Accessories">
+							Audio &amp; Accessories
+						</option>
+						<option value="Campus Transit">Campus Transit</option>
+						<option value="Engineering & Lab Gear">
+							Engineering &amp; Lab Gear
+						</option>
+					</select>
+				</div>
+
+				<div class="filter-group">
+					<label for="homeConditionFilter" class="filter-label"
+						>Condition</label
+					>
+					<select id="homeConditionFilter" class="select-control">
+						<option value="all">All Conditions</option>
+						<option value="Factory Sealed / Calibrated">
+							Brand New / Sealed
+						</option>
+						<option value="Field Tested">
+							Like New (Gently Used)
+						</option>
+						<option value="Refurbished Core">Good Condition</option>
+						<option value="Surplus Salvage">Fair Condition</option>
+					</select>
+				</div>
+
+				<div class="filter-group">
+					<label for="homeMinPrice" class="filter-label"
+						>Min Price ($)</label
+					>
+					<input
+						type="number"
+						id="homeMinPrice"
+						class="input-control"
+						placeholder="Min $" />
+				</div>
+
+				<div class="filter-group">
+					<label for="homeMaxPrice" class="filter-label"
+						>Max Price ($)</label
+					>
+					<input
+						type="number"
+						id="homeMaxPrice"
+						class="input-control"
+						placeholder="Max $" />
+				</div>
+
+				<button id="homeResetBtn" class="btn-outline">Reset</button>
+			</section>
+
+			<!-- Results Header -->
+			<div class="card-top-row">
+				<span class="filter-label">
+					Available Campus Listings:
+					<strong id="homeResultsCount">0</strong>
+				</span>
+			</div>
+
+			<!-- Active Listings Grid -->
+			<div id="homeListingsGrid" class="listings-grid">
+				<!-- Populated dynamically by portal.js -->
+			</div>
+
+			<!-- 4 Role Portals Navigation Cards -->
+			<section class="roles-overview-panel">
+				<h2 class="section-title">Campus Role Portals</h2>
+				<p class="section-desc">
+					Each role operates as an autonomous portal with dedicated
+					capabilities.
+				</p>
+
+				<div class="roles-grid">
+					<!-- Buyer Role -->
+					<article class="role-portal-card">
+						<div class="role-icon">🛒</div>
+						<h3 class="role-card-title">Buyer Portal</h3>
+						<p class="role-card-desc">
+							Search listings, communicate privately with sellers
+							via in-app chat, and track all purchased campus
+							items with verified order receipts.
+						</p>
+						<div class="role-actions-list">
+							<a
+								href="buyers/view/search.html"
+								class="btn-outline"
+								>Browse Listings</a
+							>
+							<a
+								href="buyers/view/purchases.html"
+								class="btn-cyan"
+								>My Purchases</a
+							>
+						</div>
+					</article>
+
+					<!-- Seller Role -->
+					<article class="role-portal-card">
+						<div class="role-icon">📦</div>
+						<h3 class="role-card-title">Seller Portal</h3>
+						<p class="role-card-desc">
+							List items with 5 photo upload slots, manage live
+							stock, remove items, and monitor completed sales and
+							revenue in your sold ledger.
+						</p>
+						<div class="role-actions-list">
+							<a
+								href="sellers/view/manage-listings.html"
+								class="btn-outline"
+								>Manage Inventory</a
+							>
+							<a
+								href="sellers/view/create-listing.html"
+								class="btn-cyan"
+								>+ Add New Listing</a
+							>
+						</div>
+					</article>
+
+					<!-- Moderator Role -->
+					<article class="role-portal-card">
+						<div class="role-icon">🛡️</div>
+						<h3 class="role-card-title">Moderator Portal</h3>
+						<p class="role-card-desc">
+							Verify listed products, inspect flagged items for
+							counterfeit specs or policy violations, and remove
+							scam content to keep campus safe.
+						</p>
+						<div class="role-actions-list">
+							<a
+								href="moderators/view/reported-listings.html"
+								class="btn-cyan"
+								>Review &amp; Anti-Scam Hub</a
+							>
+						</div>
+					</article>
+
+					<!-- Admin Role -->
+					<article class="role-portal-card">
+						<div class="role-icon">⚡</div>
+						<h3 class="role-card-title">Admin Portal</h3>
+						<p class="role-card-desc">
+							Monitor platform operations, adjust campus
+							commission tariff rates, toggle maintenance mode,
+							and manage operator accounts with sanctions.
+						</p>
+						<div class="role-actions-list">
+							<a
+								href="admin/view/user-management.html"
+								class="btn-cyan"
+								>Governance &amp; Users</a
+							>
+						</div>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<!-- Instant Purchase Escrow Confirmation Modal -->
+		<div id="purchaseModal" class="modal-backdrop">
+			<div class="modal-card">
+				<button id="closePurchaseModalBtn" class="modal-close-btn">
+					&times;
+				</button>
+				<h2 class="hero-title">Confirm Campus Purchase</h2>
+				<p class="hero-desc">
+					Secure peer transaction with on-campus pickup verification.
+				</p>
+
+				<div class="seller-meta-row">
+					<div>
+						<span class="filter-label">Product Name</span>
+						<h3 id="purchaseModalTitle" class="listing-title">
+							Item Title
+						</h3>
+						<span class="metric-sub"
+							>Seller:
+							<strong id="purchaseModalSeller"
+								>Seller</strong
+							></span
+						>
+					</div>
+					<div>
+						<span class="filter-label">Total Price</span>
+						<div id="purchaseModalPrice" class="price-display">
+							$0
+						</div>
+					</div>
+				</div>
+
+				<p class="section-desc">
+					Upon confirmation, this item will be reserved under your
+					Buyer Account, deducted from public search, and filed in
+					<strong>My Purchases</strong>.
+				</p>
+
+				<button id="confirmPurchaseBtn" class="btn-buy">
+					Confirm Purchase &amp; Reserve Item
+				</button>
+			</div>
+		</div>
+
+		<script src="portal.js"></script>
+	</body>
+</html>
